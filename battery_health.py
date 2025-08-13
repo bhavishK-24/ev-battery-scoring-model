@@ -14,14 +14,13 @@ df['recent_warning'] = ((df['batteryDetails.warning'] != 0) | (df['batteryDetail
 features = [
     'batteryDetails.soh',                      
     'capacity_fade',                           
-    'batteryDetails.cell_level_voltage_difference', # Lower = better
-    'batteryDetails.maximum_cell_temperature',  # Lower = better
-    'batteryDetails.internal_resistance_of_battery', # Lower = better
-    'battery_age_months',                      # Lower = better
-    'batteryDetails.no_of_battery_cycles',      # Lower = better
-    'batteryDetails.remaining_battery_cycles',  # Higher = better
-    'recent_warning'                           # Lower = better
-]
+    'batteryDetails.cell_level_voltage_difference', 
+    'batteryDetails.maximum_cell_temperature',  
+    'batteryDetails.internal_resistance_of_battery', 
+    'battery_age_months',                      
+    'batteryDetails.no_of_battery_cycles',
+    'batteryDetails.remaining_battery_cycles', 
+    'recent_warning'                          
 
 
 df['imbalance_norm'] = MinMaxScaler().fit_transform(df[['batteryDetails.cell_level_voltage_difference']])
